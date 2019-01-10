@@ -10,6 +10,8 @@
         </div>
       </swiper-slide>
     </swiper>
+    <!-- Optional controls -->
+    <div class="swiper-pagination" slot="pagination"></div>
   </div>
 </template>
 <script>
@@ -18,14 +20,15 @@ export default {
   data() {
     return {
       swiperOption: {
-          autoplay:false
+        autoplay: false,
+        pagination: ".swiper-pagination"
       },
       iconList: [
         {
           id: "001",
           iconUrl:
             "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-          desc: "景点门票啊啊啊啊啊"
+          desc: "景点门票"
         },
         {
           id: "002",
@@ -72,8 +75,14 @@ export default {
         {
           id: "009",
           iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/b1/528a9e80403b8c02.png",
-          desc: "武汉欢乐谷"
+            "http://img1.qunarzz.com/piao/fusion/1803/50/26ffa31b56646402.png",
+          desc: "极地海洋"
+        },
+        {
+          id: "010",
+          iconUrl:
+            "http://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png",
+          desc: "名胜古迹"
         }
       ]
     };
@@ -97,6 +106,21 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl';
 @import '~styles/mixins.styl';
+
+.icons >>> .swiper-pagination {
+  width: 100%;
+}
+
+.icons >>> .swiper-pagination-bullet {
+  margin: 0 4px;
+  background: rgba(144, 144, 144, 0.8);
+  width: 6px;
+  height: 6px;
+}
+
+.icons >>> .swiper-pagination-bullet-active {
+  background: rgba(0, 175, 190, 0.8);
+}
 
 .icons >>> .swiper-slide {
   overflow: hidden;
@@ -137,7 +161,7 @@ export default {
       line-height: 0.44rem;
       color: $darkTextColor;
       text-align: center;
-      ellipsis ();
+      ellipsis;
     }
   }
 }
