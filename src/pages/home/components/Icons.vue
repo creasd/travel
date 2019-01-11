@@ -92,7 +92,7 @@ export default {
       .icon-img-content {
         display: block;
         margin: 0 auto;
-        height: 100%;
+        height: 90%;
       }
     }
 
