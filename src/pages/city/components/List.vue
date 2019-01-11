@@ -12,14 +12,27 @@
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper" v-for="item in hotcities" :key="item.id">
+          <div 
+            class="button-wrapper" 
+            v-for="item in hotcities" 
+            :key="item.id"
+          >
             <div class="button">{{item.name}}</div>
           </div>
         </div>
       </div>
-      <div class="area" v-for="(item,key,i) in cities" :key="i">
+      <div 
+        class="area" 
+        v-for="(item,key,i) in cities" 
+        :key="i"
+        :ref="key"
+      >
         <div class="title border-topbottom">{{key}}</div>
-        <div class="item-list" v-for="innerItem in item" :key="innerItem.id">
+        <div 
+          class="item-list" 
+          v-for="innerItem in item" 
+          :key="innerItem.id"
+        >
           <div class="item border-bottom">{{innerItem.name}}</div>
         </div>
       </div>
@@ -36,7 +49,17 @@ export default {
   },
   props: {
     hotcities: Array,
-    cities:Object
+    cities:Object,
+    letter:String
+  },
+   watch: {
+    letter(){
+      if(this.letter){
+        //this.letter 的值即为 各个字母 也就是ref所绑定的  :ref="key"
+        const element = this.$refs[this.letter][0];     //利用better-scroll插件的 scrollToElement 实现跳转到每个字母所对应的位置
+        this.scroll.scrollToElement(element);
+      }
+    }
   }
 };
 </script>
