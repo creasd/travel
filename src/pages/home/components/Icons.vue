@@ -1,7 +1,7 @@
 <template>
   <div class="icons">
     <swiper :options="swiperOption">
-      <swiper-slide v-for="(page_, index) of paging" :key="index">
+      <swiper-slide v-for="(page_, index) in paging" :key="index">
         <div class="icon" v-for="item in page_" :key="item.id">
           <div class="icon-img">
             <img class="icon-img-content" :src="item.iconUrl">
@@ -22,70 +22,11 @@ export default {
       swiperOption: {
         autoplay: false,
         pagination: ".swiper-pagination"
-      },
-      iconList: [
-        {
-          id: "001",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-          desc: "景点门票"
-        },
-        {
-          id: "002",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png",
-          desc: "武汉必游"
-        },
-        {
-          id: "003",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png",
-          desc: "游乐场"
-        },
-        {
-          id: "004",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/b6/37560ece9c62b502.png",
-          desc: "城市观光"
-        },
-        {
-          id: "005",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/50/26ffa31b56646402.png",
-          desc: "海洋馆"
-        },
-        {
-          id: "006",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png",
-          desc: "一日游"
-        },
-        {
-          id: "007",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1811/f6/e54fad3ea337b02.gif",
-          desc: "年中大促"
-        },
-        {
-          id: "008",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/b1/528a9e80403b8c02.png",
-          desc: "武汉欢乐谷"
-        },
-        {
-          id: "009",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/50/26ffa31b56646402.png",
-          desc: "极地海洋"
-        },
-        {
-          id: "010",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png",
-          desc: "名胜古迹"
-        }
-      ]
+      }
     };
+  },
+  props: {
+    iconList: Array
   },
   computed: {
     paging() {
