@@ -42,6 +42,7 @@ export default {
     padding-left 0.2rem
     background-color #fff
     border-radius 0.1rem
+    margin-right 0.15rem
     color #ccc
   .header-right
     width 1.24rem

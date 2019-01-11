@@ -109,6 +109,9 @@ export default {
 
 .icons >>> .swiper-pagination {
   width: 100%;
+  position: static;
+  margin-bottom: 0.1rem;
+  margin-top: 0.1rem;
 }
 
 .icons >>> .swiper-pagination-bullet {
