@@ -12,60 +12,15 @@
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">上海</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">广州</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">深圳</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">武汉</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">长沙</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">珠海</div>
+          <div class="button-wrapper" v-for="item in hotcities" :key="item.id">
+            <div class="button">{{item.name}}</div>
           </div>
         </div>
       </div>
-      <div class="area">
-        <div class="title border-topbottom">A</div>
-        <div class="item-list">
-          <div class="item border-bottom">鞍山</div>
-          <div class="item border-bottom">鞍山</div>
-          <div class="item border-bottom">鞍山</div>
-          <div class="item border-bottom">鞍山</div>
-          <div class="item border-bottom">鞍山</div>
-          <div class="item border-bottom">鞍山</div>
-        </div>
-      </div>
-      <div class="area">
-        <div class="title border-topbottom">A</div>
-        <div class="item-list">
-          <div class="item border-bottom">鞍山</div>
-          <div class="item border-bottom">鞍山</div>
-          <div class="item border-bottom">鞍山</div>
-          <div class="item border-bottom">鞍山</div>
-          <div class="item border-bottom">鞍山</div>
-          <div class="item border-bottom">鞍山</div>
-        </div>
-      </div>
-      <div class="area">
-        <div class="title border-topbottom">A</div>
-        <div class="item-list">
-          <div class="item border-bottom">鞍山</div>
-          <div class="item border-bottom">鞍山</div>
-          <div class="item border-bottom">鞍山</div>
-          <div class="item border-bottom">鞍山</div>
-          <div class="item border-bottom">鞍山</div>
-          <div class="item border-bottom">鞍山</div>
+      <div class="area" v-for="(item,key,i) in cities" :key="i">
+        <div class="title border-topbottom">{{key}}</div>
+        <div class="item-list" v-for="innerItem in item" :key="innerItem.id">
+          <div class="item border-bottom">{{innerItem.name}}</div>
         </div>
       </div>
     </div>
@@ -78,6 +33,10 @@ export default {
   name: "CityList",
   mounted() {
     this.scroll = new BScroll(this.$refs.wrapper);
+  },
+  props: {
+    hotcities: Array,
+    cities:Object
   }
 };
 </script>
