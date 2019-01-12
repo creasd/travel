@@ -1,14 +1,12 @@
 <template>
   <div>
     <ul class="list">
-      <li 
-        class="item" 
-        v-for="(item,key) in cities" 
-        :key="key" 
+      <li
+        class="item"
+        v-for="(item,key) in cities"
+        :key="key"
         @click="handleLetterClick"
-      >
-        {{key}}
-      </li>
+      >{{key}}</li>
     </ul>
   </div>
 </template>
@@ -20,7 +18,7 @@ export default {
   },
   methods: {
     handleLetterClick(e) {
-      this.$emit("change", e.target.innerText);
+      this.$emit("change", e.target.innerText); //取到所点击的字母
     }
   }
 };
@@ -42,6 +40,10 @@ export default {
   .item {
     line-height: 0.44rem;
     color: $bgcolor;
+  }
+
+  .active {
+    color: red;
   }
 }
 </style>

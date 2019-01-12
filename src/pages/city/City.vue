@@ -1,7 +1,7 @@
 <template>
   <div>
     <city-header></city-header>
-    <city-search></city-search>
+    <city-search :cities="cities"></city-search>
     <city-list :cities="cities" :hotcities="hotcities" :letter="letter"></city-list>
     <city-alphabet :cities="cities" @change="handleLetterChange"></city-alphabet>
   </div>
@@ -37,7 +37,6 @@ export default {
       if (res.ret && res.data) {
         this.cities = res.data.cities;
         this.hotcities = res.data.hotCities;
-        console.log(res);
       }
     },
     handleLetterChange(letter){

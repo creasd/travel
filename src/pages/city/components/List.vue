@@ -5,7 +5,7 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">北京</div>
+            <div class="button em">北京</div>
           </div>
         </div>
       </div>
@@ -56,8 +56,9 @@ export default {
     letter(){
       if(this.letter){
         //this.letter 的值即为 各个字母 也就是ref所绑定的  :ref="key"
-        const element = this.$refs[this.letter][0];     //利用better-scroll插件的 scrollToElement 实现跳转到每个字母所对应的位置
-        this.scroll.scrollToElement(element);
+        // console.log(this.$refs);
+        const element = this.$refs[this.letter][0];    
+        this.scroll.scrollToElement(element);         //利用better-scroll插件的 scrollToElement 实现跳转到每个字母所对应的位置
       }
     }
   }
@@ -114,6 +115,9 @@ export default {
         border: 0.02rem solid #ccc;
         text-align: center;
         border-radius: 0.06rem;
+      }
+      .button.em{
+        border: 0.02rem solid $bgcolor;
       }
     }
   }
